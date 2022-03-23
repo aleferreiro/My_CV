@@ -1,6 +1,5 @@
 ---
-name: Alejandro Manuel
-surname: Ferreiro
+name: Alejandro Manuel Ferreiro
 position: "PhD Candidate"
 profilepic: "img/profile.jpg"
 address: "Institute of Animal Diversity and Ecology (IDEA)"
@@ -16,7 +15,6 @@ output:
   vitae::awesomecv:
     page_total: true
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
@@ -94,4 +92,48 @@ courses %>%
                    with = name,
                    where = where,
                    why = details)
+```
+
+# Other capacitations
+```{r}
+otherCourses %>% 
+  detailed_entries(what = institution,
+                   when = date,
+                   with = name,
+                   where = where)
+```
+
+# Teaching experience
+```{r}
+teaching %>% 
+  detailed_entries(what = institution,
+                   when = date,
+                   with = name,
+                   where = where,
+                   why = details)
+```
+
+# Scientific management positions
+```{r}
+management %>% 
+  detailed_entries(what = institution,
+                   when = date,
+                   with = name,
+                   where = where)
+```
+
+# Skills
+## Technical skills
+
+```{r}
+skills %>% 
+  detailed_entries(what = skill,
+                   with = group)
+```
+
+## Language skills
+```{r}
+language %>% 
+  detailed_entries(what = level,
+                   with = language)
 ```
