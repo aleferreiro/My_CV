@@ -1,0 +1,97 @@
+---
+name: Alejandro Manuel
+surname: Ferreiro
+position: "PhD Candidate"
+profilepic: "img/profile.jpg"
+address: "Institute of Animal Diversity and Ecology (IDEA)"
+www: aleferreiro.netlify.app
+email: "aleferreiro7@gmail.com"
+twitter: aleferreiro1
+github: aleferreiro
+linkedin: alejandro-manuel-ferreiro-431aa4b0
+orcid: 0000-0002-0921-6137
+headcolor: 414141
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::awesomecv:
+    page_total: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(here)
+```
+
+```{r functions}
+readExcelSheets <- function(filename){
+  # read all sheets in .xlsx 
+  all <- readxl::excel_sheets(filename)
+  
+  # import each sheet into a list using readxl::read_excel
+  list <- lapply(all, function(x) readxl::read_excel(filename, sheet = x))
+  
+  # save sheet name for each sheet (list)
+  names(list) <- all
+  
+  # breaks up list and creates a dataframe for each sheet with df names matching sheet names
+  list2env(list, envir = .GlobalEnv)
+}
+```
+```{r load-data, message=F, results='hide'}
+filename <- here::here("ferreiro_vitae_data.xlsx")
+readExcelSheets(filename)
+```
+# Education
+```{r}
+education %>% 
+  detailed_entries(what = institution,
+                   when = year,
+                   with = degree,
+                   where = where,
+                   why = details)
+```
+
+# Journal Publications
+```{r}
+library(rorcid)
+library(tidyverse)
+out <- works(orcid_id("0000-0002-0921-6137")) 
+ tibble(
+   Journal = out$`journal-title.value`,
+   Title = out$title.title.value,
+   Year = out$`publication-date.year.value`,
+   DOI = c(out[[21]][[1]][1,2], out[[21]][[2]][1,2])
+ ) %>% 
+  detailed_entries(
+  DOI,
+  Journal,
+  Title,
+  Year
+)
+```
+
+# Other Publications
+```{r}
+bibliography_entries(here("otherPubs.bib"))
+```
+
+# Awards, Scholarships, Fellowships and Funding
+```{r}
+awards %>% 
+  detailed_entries(what = institution,
+                   when = date,
+                   with = name,
+                   where = role,
+                   why = details)
+```
+
+# Courses taken
+```{r}
+courses %>% 
+  detailed_entries(what = institution,
+                   when = date,
+                   with = name,
+                   where = where,
+                   why = details)
+```
