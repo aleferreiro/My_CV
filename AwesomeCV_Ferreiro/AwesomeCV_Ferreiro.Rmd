@@ -9,7 +9,7 @@ twitter: aleferreiro1
 github: aleferreiro
 linkedin: alejandro-manuel-ferreiro-431aa4b0
 orcid: 0000-0002-0921-6137
-headcolor: 414141
+headcolor: 2b8cbe
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::awesomecv:
