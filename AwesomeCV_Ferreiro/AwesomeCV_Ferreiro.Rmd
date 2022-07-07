@@ -1,6 +1,6 @@
 ---
 name: Alejandro Manuel Ferreiro
-position: "PhD Candidate"
+position: "PhD fellow"
 profilepic: "img/profile.jpg"
 address: "Institute of Animal Diversity and Ecology (IDEA)"
 www: aleferreiro.netlify.app
@@ -136,4 +136,15 @@ skills %>%
 language %>% 
   detailed_entries(what = level,
                    with = language)
+```
+
+# References
+```{r}
+references %>% 
+  detailed_entries(with = names,
+                   where = ,
+                   what = institution,
+                   when = ,
+                   why = email
+                   )
 ```
