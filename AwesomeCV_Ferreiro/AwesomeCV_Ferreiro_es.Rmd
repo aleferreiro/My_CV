@@ -1,8 +1,8 @@
 ---
 name: Alejandro Manuel Ferreiro
-position: "PhD fellow"
+position: "Dr. en Ciencias Biológicas"
 profilepic: "img/profile.jpg"
-address: "Institute of Animal Diversity and Ecology (IDEA)"
+address: "Instituto de Diversidad y Ecología Animal (IDEA)"
 www: aleferreiro.netlify.app
 email: "aleferreiro7@gmail.com"
 twitter: aleferreiro1
@@ -37,10 +37,10 @@ readExcelSheets <- function(filename){
 }
 ```
 ```{r load-data, message=F, results='hide'}
-filename <- here::here("ferreiro_vitae_data.xlsx")
+filename <- here::here("ferreiro_vitae_data_es.xlsx")
 readExcelSheets(filename)
 ```
-# Education
+# Educación
 ```{r}
 education %>% 
   detailed_entries(what = institution,
@@ -50,7 +50,7 @@ education %>%
                    why = details)
 ```
 
-# Journal Publications
+# Publicaciones en revistas científicas
 ```{r}
 library(rorcid)
 library(tidyverse)
@@ -69,12 +69,12 @@ out <- works(orcid_id("0000-0002-0921-6137"))
 )
 ```
 
-# Other Publications
+# Otras publicaciones
 ```{r}
 bibliography_entries(here("otherPubs.bib"))
 ```
 
-# Manuscripts submitted
+# Manuscritos enviados
 ```{r}
 msSubmitted %>% 
   detailed_entries(what = status,
@@ -85,7 +85,7 @@ msSubmitted %>%
 ```
 
 
-# Awards, Scholarships, Fellowships and Funding
+# Premios, becas y subsidios
 ```{r}
 awards %>% 
   detailed_entries(what = institution,
@@ -95,7 +95,7 @@ awards %>%
                    why = details)
 ```
 
-# Courses taken
+# Cursos realizados
 ```{r}
 courses %>% 
   detailed_entries(what = institution,
@@ -105,7 +105,7 @@ courses %>%
                    why = details)
 ```
 
-# Other capacitations
+# Otras capacitaciones
 ```{r}
 otherCourses %>% 
   detailed_entries(what = institution,
@@ -114,7 +114,7 @@ otherCourses %>%
                    where = where)
 ```
 
-# Teaching experience
+# Docencia
 ```{r}
 teaching %>% 
   detailed_entries(what = institution,
@@ -124,7 +124,7 @@ teaching %>%
                    why = details)
 ```
 
-# Scientific management positions
+# Cargos de gestión
 ```{r}
 management %>% 
   detailed_entries(what = institution,
@@ -133,8 +133,8 @@ management %>%
                    where = where)
 ```
 
-# Skills
-## Technical skills
+# Habilidades
+## Técnicas
 
 ```{r}
 skills %>% 
@@ -142,20 +142,9 @@ skills %>%
                    with = group)
 ```
 
-## Language skills
+## Idiomas
 ```{r}
 language %>% 
   detailed_entries(what = level,
                    with = language)
-```
-
-# References
-```{r}
-references %>% 
-  detailed_entries(with = names,
-                   where = ,
-                   what = institution,
-                   when = ,
-                   why = email
-                   )
 ```
