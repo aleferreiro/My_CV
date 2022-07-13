@@ -10,7 +10,7 @@ github: aleferreiro
 linkedin: alejandro-manuel-ferreiro-431aa4b0
 orcid: 0000-0002-0921-6137
 headcolor: 2b8cbe
-date: "`r format(Sys.time(), '%B %Y')`"
+date: "July, 2022"
 output: 
   vitae::awesomecv:
     page_total: true

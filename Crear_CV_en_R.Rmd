@@ -22,7 +22,7 @@ install.packages("vitae")
 install.packages("tinytex")
 tinytex::install_tinytex()
 ```
-Para otros OS chequear en el repo: 
+Para otros Sistemas Operativos (OS) chequear en el repo: 
 
 Una vez instalado se debe cargar la libreria
 
